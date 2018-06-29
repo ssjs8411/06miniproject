@@ -1,3 +1,5 @@
+<!-- 2018-06-29-김소희 -->
+<!-- 쇼핑몰 회원가입 폼 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
 <html>
@@ -6,6 +8,46 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+<form action="<%= request.getContextPath() %>/shoppingMember/shoppingMemberInsertAction.jsp" method="post">
+<table border="1">
+<tr>
+	<td>아이디</td>
+	<td><input type="text" name="sm_id" size="20"></td>
+<tr>
+<tr>
+	<td>비밀번호</td>
+	<td><input type="text" name="sm_pw" size="20"></td>
+<tr>
+<tr>
+	<td>관리자 이름</td>
+	<td><input type="text" name="sm_name" size="20"></td>
+<tr>
+<tr>
+	<td>쇼핑몰 이름</td>
+	<td><input type="text" name="s_name" size="20"></td>
+<tr>
+<tr>
+	<td>쇼핑몰 스타일</td>
+	<td>
+		<input type="checkbox" name="style" value="clothes">빈티지<br>
+		<input type="checkbox" name="style" value="clothes">캐쥬얼<br>
+		<input type="checkbox" name="style" value="clothes">유니크<br>
+		<input type="checkbox" name="style" value="clothes">심플<br>
+		<input type="checkbox" name="style" value="clothes">오피스룩<br>
+	</td>
+<tr>
+<tr>
+	<td>고객센터 전화번호</td>
+	<td><input type="text" name="sm_phone" size="20"></td>
+<tr>
+<tr>
+	<td>쇼핑몰 URL</td>
+	<td><input type="text" name="sm_addr" size="20"></td>
+<tr>
+<tr>
+	<td colspan="4"><input type="submit" value="회원가입버튼"></td>
+</tr>
+</table>
+</form>
 </body>
 </html>
