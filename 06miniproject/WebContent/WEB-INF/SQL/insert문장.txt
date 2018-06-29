@@ -1,0 +1,54 @@
+// generalMember
+
+INSERT INTO general_member
+	(general_member_id, general_member_pw, general_member_name, general_member_email, general_member_phone, general_member_age, general_member_date)
+	VALUES ('id001', 'pw001', '±è01', 'email01', 01011111111, '10´ë', NOW()),
+	('id002', 'pw002', '±è02', 'email02', 01022222222, '20´ë', NOW()),
+	('id003', 'pw003', '±è03', 'email03', 01033333333, '30´ë', NOW()),
+	('id004', 'pw004', '±è04', 'email04', 01044444444, '40´ë', NOW()),
+	('id005', 'pw005', '±è05', 'email05', 01055555555, '50´ëÀÌ»ó', NOW());
+	
+	
+// generalMemberStyle
+
+INSERT INTO general_member_style
+	(general_member_no, general_member_style)
+	VALUES (1, 'À¯´ÏÅ©'),
+	(1, 'ºóÆ¼Áö'),
+	(2, '½ÉÇÃ'),
+	(2, '¿ÀÇÇ½º·è'),
+	(3, 'ºóÆ¼Áö');
+	
+	
+// shoppingMember
+
+INSERT INTO shopping_member
+	(shopping_member_id, shopping_member_pw, shopping_member_name, shopping_name, shopping_member_phone, shopping_member_date, shopping_addr, shopping_approval)
+	VALUES ('sid001', 'spw001', 'È«01', '¼îÇÎ¸ô1', 1111111, NOW(), 'http://naver.com', 'O'),
+	('sid002', 'spw002', 'È«02', '¼îÇÎ¸ô2', 2222222, NOW(), 'http://daum.net', 'O'),
+	('sid003', 'spw003', 'È«03', '¼îÇÎ¸ô3', 3333333, NOW(), '3', 'X'),
+	('sid004', 'spw004', 'È«04', '¼îÇÎ¸ô4', 4444444, NOW(), '4', 'X'),
+	('sid005', 'spw005', 'È«05', '¼îÇÎ¸ô5', 5555555, NOW(), '5', 'X');
+	
+// shoppingMemberStyle
+
+INSERT INTO shopping_member_style
+	(shopping_member_no, shopping_member_style)
+	VALUES (1, 'ºóÆ¼Áö'),
+	(1, 'Ä³ÁÖ¾ó'),
+	(2, 'ºóÆ¼Áö'),
+	(2, '½ÉÇÃ'),
+	(3, '¿ÀÇÇ½º·è'),
+	(3, 'À¯´ÏÅ©'),
+	(4, 'À¯´ÏÅ©'),
+	(4, 'Ä³ÁÖ¾ó'),
+	(5, 'Ä³ÁÖ¾ó'),
+	(5, '¿ÀÇÇ½º·è');
+	
+// wishList
+
+INSERT INTO wishlist
+	(general_member_no, general_member_name, shopping_name, shopping_addr)
+	VALUES (1, '±è01', '¼îÇÎ¸ô1', 'http://naver.com'),
+	(1, '±è01', '¼îÇÎ¸ô2', 'http://daum.net'),
+	(2, '±è02', '¼îÇÎ¸ô1', 'http://naver.com');

@@ -1,0 +1,85 @@
+// 데이터베이스명
+create database shoppingrecommend;
+
+// 데이스베이스 아이디 패스워드 권한부여
+grant select,insert,update,delete,create,drop,alter on shoppingrecommend.* to '06miniid'@'localhost' identified by '06minipw';
+
+// generalMember table
+
+CREATE TABLE `general_member` (
+	`general_member_no` INT(10) NOT NULL AUTO_INCREMENT,
+	`general_member_id` VARCHAR(50) NOT NULL,
+	`general_member_pw` VARCHAR(50) NOT NULL,
+	`general_member_name` VARCHAR(50) NOT NULL,
+	`general_member_email` VARCHAR(50) NOT NULL,
+	`general_member_phone` INT(11) NOT NULL,
+	`general_member_age` VARCHAR(50) NOT NULL,
+	`general_member_date` DATE NOT NULL,
+	PRIMARY KEY (`general_member_no`)
+)
+COLLATE='euckr_korean_ci'
+ENGINE=InnoDB;
+
+
+
+// generalMemberStyle table
+
+CREATE TABLE `general_member_style` (
+	`general_member_style_no` INT(10) NOT NULL AUTO_INCREMENT,
+	`general_member_no` INT(10) NOT NULL,
+	`general_member_style` VARCHAR(50) NOT NULL,
+	PRIMARY KEY (`general_member_style_no`),
+	INDEX `general_member_no` (`general_member_no`),
+	CONSTRAINT `general_member_no` FOREIGN KEY (`general_member_no`) REFERENCES `general_member` (`general_member_no`)
+)
+COLLATE='euckr_korean_ci'
+ENGINE=InnoDB;
+
+// shoppingMember table
+
+CREATE TABLE `shopping_member` (
+	`shopping_member_no` INT(10) NOT NULL AUTO_INCREMENT,
+	`shopping_member_id` VARCHAR(50) NOT NULL,
+	`shopping_member_pw` VARCHAR(50) NOT NULL,
+	`shopping_member_name` VARCHAR(50) NOT NULL,
+	`shopping_name` VARCHAR(50) NOT NULL,
+	`shopping_member_phone` INT(11) NOT NULL,
+	`shopping_member_date` DATE NOT NULL,
+	`shopping_addr` VARCHAR(50) NOT NULL,
+	`shopping_approval` VARCHAR(50) NOT NULL,
+	PRIMARY KEY (`shopping_member_no`)
+)
+COLLATE='euckr_korean_ci'
+ENGINE=InnoDB;
+
+
+// shoppingMemberStyle table
+
+CREATE TABLE `shopping_member_style` (
+	`shopping_member_style_no` INT(10) NOT NULL AUTO_INCREMENT,
+	`shopping_member_no` INT(10) NOT NULL,
+	`shopping_member_style` VARCHAR(50) NOT NULL,
+	PRIMARY KEY (`shopping_member_style_no`),
+	INDEX `shopping_member_no` (`shopping_member_no`),
+	CONSTRAINT `shopping_member_no` FOREIGN KEY (`shopping_member_no`) REFERENCES `shopping_member` (`shopping_member_no`)
+)
+COLLATE='euckr_korean_ci'
+ENGINE=InnoDB;
+
+
+// wishList table
+
+CREATE TABLE `wishlist` (
+	`wishlist_no` INT(10) NOT NULL AUTO_INCREMENT,
+	`general_member_no` INT(10) NOT NULL,
+	`general_member_name` VARCHAR(50) NOT NULL,
+	`shopping_name` VARCHAR(50) NOT NULL,
+	`shopping_addr` VARCHAR(50) NOT NULL,
+	PRIMARY KEY (`wishlist_no`)
+)
+COLLATE='euckr_korean_ci'
+ENGINE=InnoDB;
+
+
+
+
