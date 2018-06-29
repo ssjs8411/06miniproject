@@ -1,11 +1,11 @@
+<!-- 18.6.29 최지수 -->
+<!-- 메인화면 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html>
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-</head>
-<body>
-하세요
-</body>
-</html>
+<a href="<%=request.getContextPath()%>/insertChoice/insertChoice.jsp">회원가입</a>
+<!-- 로그인폼 -->
+<form action="<%=request.getContextPath()%>/login/loginAction.jsp">
+	<input type="text" name="loginId"> <br>
+	<input type="password" name="loginPw"> <br>
+	<input type="submit" value="로그인">
+</form>
