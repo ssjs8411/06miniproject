@@ -26,19 +26,19 @@
 	<td><input type="text" name="g_phone" size="20"></td>
 <tr>
 	<td>나이</td>
-	<td><input type="checkbox" name="g_age">10대
-	<input type="checkbox" name="g_age" />20대
-	<input type="checkbox" name="g_age"/>30대
-	<input type="checkbox" name="g_age"/>40대
-	<input type="checkbox" name="g_age"/>50대이상<br/></td>
+	<td><input type="radio" name="g_age" value="10대">10대
+	<input type="radio" name="g_age" value="20대"/>20대
+	<input type="radio" name="g_age" value="30대"/>30대
+	<input type="radio" name="g_age" value="40대"/>40대
+	<input type="radio" name="g_age" value="50대이상"/>50대이상<br/></td>
 <tr>
 <tr>
 	<td>스타일</td>
-	<td><input type="checkbox" name="g_style">빈티지
-	<input type="checkbox" name="g_style" />심플
-	<input type="checkbox" name="g_style"/>유니크
-	<input type="checkbox" name="g_style"/>오피스룩
-	<input type="checkbox" name="g_style"/>캐주얼<br/></td>
+	<td><input type="checkbox" name="g_style" value="빈티지">빈티지
+	<input type="checkbox" name="g_style" value="심플"/>심플
+	<input type="checkbox" name="g_style" value="유니크"/>유니크
+	<input type="checkbox" name="g_style" value="오피스룩"/>오피스룩
+	<input type="checkbox" name="g_style" value="캐주얼"/>캐주얼<br/></td>
 <tr>
 <tr>
 	<td colspan="4"><input type="submit" value="회원가입버튼"></td>

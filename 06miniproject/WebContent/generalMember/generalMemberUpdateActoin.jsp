@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"  pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ page import = "dao.Gdao" %>
 <!DOCTYPE html>
 <% 	request.setCharacterEncoding("euc-kr"); %>
@@ -6,6 +6,6 @@
 <jsp:setProperty name="g" property="*"/>
 <%
 Gdao dao = new Gdao();
-dao.gInsert(g);
+dao.gUpdate(g);
 
 %>
