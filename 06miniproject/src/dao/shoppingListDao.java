@@ -1,4 +1,5 @@
-package shoppingList;
+// 18.7.4 ÃÖÁö¼ö
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -7,7 +8,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import driverDB.DB;
-import shoppingMember.ShoppingMember;
+import dto.ShoppingMember;
 
 public class shoppingListDao {
 	

@@ -1,7 +1,7 @@
 <!-- 18.7.4 ÃÖÁö¼ö -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
-<%@ page import = "shoppingList.shoppingListDao" %>
-<%@ page import = "shoppingMember.ShoppingMember" %>
+<%@ page import = "dao.shoppingListDao" %>
+<%@ page import = "dto.ShoppingMember" %>
 <%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>

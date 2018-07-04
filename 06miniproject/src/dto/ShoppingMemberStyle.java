@@ -1,4 +1,5 @@
-package shoppingMember;
+// 18.7.4 ÃÖÁö¼ö
+package dto;
 
 public class ShoppingMemberStyle {
 
