@@ -13,7 +13,7 @@
 		// 스타일테이블 번호 출력 메서드
 		public ArrayList<GeneralMemberStyle> selectStyleNo(int no){
 		
-		pstmt = conn.prepareStatement("SELECT 스타일NO, 멤버NO, 스타일 FROM table명 WHERE 멤버NO=?");
+		pstmt = conn.prepareStatement("SELECT 스타일NO, 멤버NO, 스타일 FROM table명  WHERE 멤버NO=?");
 		pstmt.setInt(1, no);
 		
 		rs = pstmt.executeQuery();
