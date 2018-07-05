@@ -1,5 +1,7 @@
+<!-- 2018-07-05 ±è¼ÒÈñ -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"  pageEncoding="EUC-KR"%>
 <%@ page import = "dao.shoppingMemberDao" %>
+<%@ page import = "dto.ShoppingMember" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,10 +12,10 @@
 <jsp:setProperty name="sm" property="*"/>
 <% request.setCharacterEncoding("euc-kr"); %>
 <%
-
-shoppingMemberDao sMdao = new shoppingMemberDao();
-sMdao.sMdaoInsert(sm);
-
+	String shopping_member_id = request.getParameter("shopping_member_id");
+	shoppingMemberDao sMdao = new shoppingMemberDao();
+	sMdao.sMdaoDelete(shopping_member_id);
+	
 %>
 </body>
 </html>
