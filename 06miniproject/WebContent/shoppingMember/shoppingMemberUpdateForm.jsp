@@ -25,6 +25,7 @@
 	String saddr = sm.getShopping_addr();	
 
 %>
+<h2>쇼핑몰 회원 수정화면</h2>
 <form action="<%= request.getContextPath() %>/shoppingMember/shoppingMemberUpdateAction.jsp" method="post">
 <table border="1">
 

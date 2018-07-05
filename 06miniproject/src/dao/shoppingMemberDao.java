@@ -11,21 +11,29 @@ import dto.ShoppingMember;
 public class shoppingMemberDao {
 	
 	
-/*	public int maxCheck() throws ClassNotFoundException, SQLException {
-		System.out.println("maxCheck.java");
-		
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		
-		DB db = new DB();
-		conn = db.dbconn();
-		
-		pstmt = conn.prepareStatement("");
-		return 0;
-		
-	}*/
+	public int maxCheck() throws ClassNotFoundException, SQLException {
+			System.out.println("maxCheck.java");
+			
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs= null;
+			
+			DB db = new DB();
+			conn = db.dbconn();
+			
+			pstmt = conn.prepareStatement("SELECT max(shopping_member_no) as max FROM shopping_member");
+			
+			rs = pstmt.executeQuery();
+			int maxno = 0;
+			if(rs.next()) {
+				maxno = rs.getInt("max")+1;
+			}
+			
+			return maxno;
+			
+	}
 	
-/*	public void insertStyle (int no, String style1, String style2) throws ClassNotFoundException, SQLException {
+	public void insertStyle (int no, String style1, String style2) throws ClassNotFoundException, SQLException {
 		System.out.println("insertStyle.java");
 		
 		Connection conn = null;
@@ -39,7 +47,12 @@ public class shoppingMemberDao {
 		pstmt.setString(2, style1);
 		pstmt.setInt(3, no);
 		pstmt.setString(4, style2);
-	}*/
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+	}
 	
 	public ShoppingMember sSelectforUpdate (String shopping_member_id) throws ClassNotFoundException, SQLException {
 		System.out.println("sSelectforUpdate.java");
