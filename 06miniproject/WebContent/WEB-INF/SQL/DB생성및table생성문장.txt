@@ -15,6 +15,7 @@ CREATE TABLE `general_member` (
 	`general_member_phone` INT(11) NOT NULL,
 	`general_member_age` VARCHAR(50) NOT NULL,
 	`general_member_date` DATE NOT NULL,
+	`general_member_level` VARCHAR(50) NOT NULL DEFAULT '일반회원',
 	PRIMARY KEY (`general_member_no`)
 )
 COLLATE='euckr_korean_ci'
