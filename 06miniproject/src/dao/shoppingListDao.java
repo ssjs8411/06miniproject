@@ -12,6 +12,55 @@ import dto.ShoppingMember;
 
 public class shoppingListDao {
 	
+	public void deleteRequestApproval(int no) throws ClassNotFoundException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("UPDATE shopping_approval SET shopping_approval='삭제요청' WHERE shopping_member_no=?");
+		pstmt.setInt(1, no);
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+	}
+	
+	public void deleteApproval(int no) throws ClassNotFoundException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("DELETE FROM shopping_approval WHERE shopping_approval_no=?");
+		pstmt.setInt(1, no);
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+	}
+	
+	public void updateApproval(int no) throws ClassNotFoundException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("UPDATE shopping_approval SET shopping_approval='등록' WHERE shopping_approval_no=?");
+		pstmt.setInt(1, no);
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		
+	}
+	
 	public ArrayList<ShoppingMember> requestShoppingList(String approval) throws ClassNotFoundException, SQLException{
 		
 		ArrayList<ShoppingMember> alsm = new ArrayList<ShoppingMember>();
@@ -35,6 +84,10 @@ public class shoppingListDao {
 			
 			alsm.add(sm);
 		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
 		
 		return alsm;
 		
@@ -60,6 +113,10 @@ public class shoppingListDao {
 			sm.setShopping_member_no(rs.getInt("shopping_member_no"));
 			sm.setShopping_approval(rs.getString("shopping_approval"));
 		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
 		
 		return sm;
 		

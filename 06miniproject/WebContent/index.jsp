@@ -38,10 +38,15 @@
 %>
 			<a href="<%=request.getContextPath()%>/shoppingMember/shoppingRequestApprovalForm.jsp">쇼핑몰 등록신청</a>
 <%			
-		}else{
+		}else if(sm.getShopping_approval().equals("등록요청")){
 %>
 		<%=sm.getShopping_approval() %> 상태입니다.
+		
 <%		
+			}else{
+%>
+				<a href="<%=request.getContextPath()%>/shoppingMember/deleteRequestForm.jsp">쇼핑몰 삭제신청</a>
+<%
 			}
 		}else{
 %>
