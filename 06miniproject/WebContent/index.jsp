@@ -51,7 +51,7 @@
 		}else{
 %>
 			<a href="<%=request.getContextPath()%>/generalMember/generalMemberUpdateForm.jsp?general_member_no=<%=session.getAttribute("generalMemberNo")%>">회원수정</a>
-			
+			<a href="<%=request.getContextPath()%>/wishlist/wishList.jsp">찜목록</a>			
 <%
 		}
 	}

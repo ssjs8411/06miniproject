@@ -9,8 +9,78 @@ import java.util.ArrayList;
 
 import driverDB.DB;
 import dto.ShoppingMember;
+import dto.WishList;
 
 public class shoppingListDao {
+	
+	public void deleteWishList(int no) throws ClassNotFoundException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("DELETE FROM wishlist WHERE wishlist_no=?");
+		pstmt.setInt(1, no);
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+	}
+	
+	public ArrayList<WishList> seleteWishList(int no) throws ClassNotFoundException, SQLException{
+		
+		ArrayList<WishList> alwl = new ArrayList<WishList>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("SELECT wishlist_no,general_member_no,general_member_name,shopping_name,shopping_addr FROM wishlist WHERE general_member_no=?");
+		pstmt.setInt(1, no);
+		
+		rs = pstmt.executeQuery();
+		while(rs.next()) {
+			WishList w = new WishList();
+			w.setWishlist_no(rs.getInt("wishlist_no"));
+			w.setGeneral_member_no(rs.getInt("general_member_no"));
+			w.setGeneral_member_name(rs.getString("general_member_name"));
+			w.setShopping_name(rs.getString("shopping_name"));
+			w.setShopping_addr(rs.getString("shopping_addr"));
+			
+			alwl.add(w);
+		}
+		
+		rs.close();
+		pstmt.close();
+		conn.close();
+		
+		return alwl;
+	}
+	
+	public void insertWishList(int no, String name, String shoppingName, String addr) throws ClassNotFoundException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("INSERT INTO wishlist (general_member_no, general_member_name, shopping_name, shopping_addr) VALUES (?, ?, ?, ?)");
+		pstmt.setInt(1, no);
+		pstmt.setString(2, name);
+		pstmt.setString(3, shoppingName);
+		pstmt.setString(4, addr);
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+	}
 	
 	public void deleteRequestApproval(int no) throws ClassNotFoundException, SQLException {
 		
@@ -150,7 +220,7 @@ public class shoppingListDao {
 		DB db = new DB();
 		conn = db.dbconn();
 		
-		pstmt = conn.prepareStatement("SELECT shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member JOIN shopping_member_style ON shopping_member.shopping_member_no = shopping_member_style.shopping_member_no WHERE shopping_member_style.shopping_member_style=? AND shopping_member.shopping_approval='O'");
+		pstmt = conn.prepareStatement("select shopping_member.shopping_member_no, shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member, shopping_member_style, shopping_approval WHERE shopping_member.shopping_member_no = shopping_member_style.shopping_member_no AND shopping_member.shopping_member_no = shopping_approval.shopping_member_no AND shopping_approval.shopping_approval='등록' AND shopping_member_style.shopping_member_style=?");
 		pstmt.setString(1, style);
 		rs = pstmt.executeQuery();
 		
@@ -182,7 +252,7 @@ public class shoppingListDao {
 		DB db = new DB();
 		conn = db.dbconn();
 		
-		pstmt = conn.prepareStatement("SELECT shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member JOIN shopping_member_style ON shopping_member.shopping_member_no = shopping_member_style.shopping_member_no WHERE shopping_member_style.shopping_member_style=? AND shopping_member.shopping_approval='O'");
+		pstmt = conn.prepareStatement("select shopping_member.shopping_member_no, shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member, shopping_member_style, shopping_approval WHERE shopping_member.shopping_member_no = shopping_member_style.shopping_member_no AND shopping_member.shopping_member_no = shopping_approval.shopping_member_no AND shopping_approval.shopping_approval='등록' AND shopping_member_style.shopping_member_style=?");
 		pstmt.setString(1, style);
 		rs = pstmt.executeQuery();
 		
@@ -214,7 +284,7 @@ public class shoppingListDao {
 		DB db = new DB();
 		conn = db.dbconn();
 		
-		pstmt = conn.prepareStatement("SELECT shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member JOIN shopping_member_style ON shopping_member.shopping_member_no = shopping_member_style.shopping_member_no WHERE shopping_member_style.shopping_member_style=? AND shopping_member.shopping_approval='O'");
+		pstmt = conn.prepareStatement("select shopping_member.shopping_member_no, shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member, shopping_member_style, shopping_approval WHERE shopping_member.shopping_member_no = shopping_member_style.shopping_member_no AND shopping_member.shopping_member_no = shopping_approval.shopping_member_no AND shopping_approval.shopping_approval='등록' AND shopping_member_style.shopping_member_style=?");
 		pstmt.setString(1, style);
 		rs = pstmt.executeQuery();
 		
@@ -246,7 +316,7 @@ public class shoppingListDao {
 		DB db = new DB();
 		conn = db.dbconn();
 		
-		pstmt = conn.prepareStatement("SELECT shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member JOIN shopping_member_style ON shopping_member.shopping_member_no = shopping_member_style.shopping_member_no WHERE shopping_member_style.shopping_member_style=? AND shopping_member.shopping_approval='O'");
+		pstmt = conn.prepareStatement("select shopping_member.shopping_member_no, shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member, shopping_member_style, shopping_approval WHERE shopping_member.shopping_member_no = shopping_member_style.shopping_member_no AND shopping_member.shopping_member_no = shopping_approval.shopping_member_no AND shopping_approval.shopping_approval='등록' AND shopping_member_style.shopping_member_style=?");
 		pstmt.setString(1, style);
 		rs = pstmt.executeQuery();
 		
@@ -278,12 +348,13 @@ public class shoppingListDao {
 		DB db = new DB();
 		conn = db.dbconn();
 		
-		pstmt = conn.prepareStatement("SELECT shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member JOIN shopping_member_style ON shopping_member.shopping_member_no = shopping_member_style.shopping_member_no WHERE shopping_member_style.shopping_member_style=? AND shopping_member.shopping_approval='O'");
+		pstmt = conn.prepareStatement("select shopping_member.shopping_member_no, shopping_member.shopping_name, shopping_member.shopping_member_phone, shopping_member.shopping_addr FROM shopping_member, shopping_member_style, shopping_approval WHERE shopping_member.shopping_member_no = shopping_member_style.shopping_member_no AND shopping_member.shopping_member_no = shopping_approval.shopping_member_no AND shopping_approval.shopping_approval='등록' AND shopping_member_style.shopping_member_style=?");
 		pstmt.setString(1, style);
 		rs = pstmt.executeQuery();
 		
 		while(rs.next()) {
 			ShoppingMember sm = new ShoppingMember();
+			sm.setShopping_member_no(rs.getInt("shopping_member_no"));
 			sm.setShopping_name(rs.getString("shopping_name"));
 			sm.setShopping_member_phone(rs.getInt("shopping_member_phone"));
 			sm.setShopping_addr(rs.getString("shopping_addr"));

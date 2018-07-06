@@ -20,6 +20,13 @@
 				<th>¼îÇÎ¸ô¸í</th>
 				<th>¼îÇÎ¸ôÀüÈ­¹øÈ£</th>
 				<th>½ºÅ¸ÀÏ</th>
+<%
+	if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<th>Âò</th>
+<%
+	}
+%>
 			</tr>
 		
 <%
@@ -41,6 +48,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[0] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>
 			</tr>
 <%			
 		}
@@ -57,6 +77,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[0] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>
 			</tr>
 <%			
 		}
@@ -67,6 +100,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[1] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%
 		}
@@ -84,6 +130,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[0] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -94,6 +153,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[1] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -104,6 +176,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[2] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -122,6 +207,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[0] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+				<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -132,6 +230,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[1] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -142,6 +253,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[2] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -152,6 +276,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[3] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -171,6 +308,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[0] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -181,6 +331,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[1] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -191,6 +354,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[2] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -201,6 +377,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[3] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
@@ -211,6 +400,19 @@
 				<td><a href="<%=sm.getShopping_addr()%>"><%= sm.getShopping_name() %></a></td>
 				<td><%= sm.getShopping_member_phone() %></td>
 				<td><%= style[4] %></td>
+<%
+			if(session.getAttribute("shoppingMemberNo") == null & session.getAttribute("sessionId") !=null){
+%>
+				<td>
+					<form action="<%=request.getContextPath()%>/wishlist/wishlistAction.jsp" method="post">
+						<input type="hidden" name="shopping_name" value="<%= sm.getShopping_name() %>">
+						<input type="hidden" name="shopping_addr" value="<%=sm.getShopping_addr()%>">
+						<button type="submit">Âò</button>
+					</form>
+				</td>
+<%
+			}
+%>				
 			</tr>
 <%			
 		}
