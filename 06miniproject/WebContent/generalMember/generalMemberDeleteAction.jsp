@@ -4,5 +4,8 @@
 <% 
 String g_no = request.getParameter("g_no");
 Gdao dao = new Gdao();
+
+dao.gDelete1(g_no);
 dao.gDelete(g_no);
+
 %>

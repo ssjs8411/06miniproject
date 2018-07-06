@@ -7,5 +7,5 @@
 <%
 Gdao dao = new Gdao();
 dao.gUpdate(g);
-
+dao.gSelectforUpdate(0);
 %>
