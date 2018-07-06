@@ -12,6 +12,77 @@ import dto.ShoppingMember;
 
 public class shoppingListDao {
 	
+	public ArrayList<ShoppingMember> requestShoppingList(String approval) throws ClassNotFoundException, SQLException{
+		
+		ArrayList<ShoppingMember> alsm = new ArrayList<ShoppingMember>();
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("SELECT shopping_approval_no, shopping_member_no, shopping_approval FROM shopping_approval WHERE shopping_approval=?");
+		pstmt.setString(1, approval);
+		
+		rs = pstmt.executeQuery();
+		
+		while(rs.next()) {
+			ShoppingMember sm = new ShoppingMember();
+			sm.setShopping_approval_no(rs.getInt("shopping_approval_no"));
+			sm.setShopping_member_no(rs.getInt("shopping_member_no"));
+			sm.setShopping_approval(rs.getString("shopping_approval"));
+			
+			alsm.add(sm);
+		}
+		
+		return alsm;
+		
+	}
+	
+	public ShoppingMember approvalList(int shopping_member_no) throws ClassNotFoundException, SQLException {
+		
+		ShoppingMember sm = new ShoppingMember();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("SELECT shopping_approval_no, shopping_member_no, shopping_approval FROM shopping_approval WHERE shopping_member_no=?");
+		pstmt.setInt(1, shopping_member_no);
+		
+		rs = pstmt.executeQuery();
+		
+		if(rs.next()) {
+			sm.setShopping_member_no(rs.getInt("shopping_member_no"));
+			sm.setShopping_approval(rs.getString("shopping_approval"));
+		}
+		
+		return sm;
+		
+	}
+	
+	public void requestApprovalShopping(int shopping_member_no) throws ClassNotFoundException, SQLException {
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("INSERT INTO shopping_approval (shopping_member_no) VALUES (?)");
+		pstmt.setInt(1, shopping_member_no);
+		
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+				
+	}
+	
 	public ArrayList<ShoppingMember> selectShoppingStyle4(String style) throws ClassNotFoundException, SQLException {
 		
 		Connection conn = null;

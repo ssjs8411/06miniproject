@@ -24,11 +24,11 @@ INSERT INTO general_member_style
 
 INSERT INTO shopping_member
 	(shopping_member_id, shopping_member_pw, shopping_member_name, shopping_name, shopping_member_phone, shopping_member_date, shopping_addr, shopping_approval)
-	VALUES ('sid001', 'spw001', 'È«01', '¼îÇÎ¸ô1', 1111111, NOW(), 'http://naver.com', 'O'),
-	('sid002', 'spw002', 'È«02', '¼îÇÎ¸ô2', 2222222, NOW(), 'http://daum.net', 'O'),
-	('sid003', 'spw003', 'È«03', '¼îÇÎ¸ô3', 3333333, NOW(), '3', 'X'),
-	('sid004', 'spw004', 'È«04', '¼îÇÎ¸ô4', 4444444, NOW(), '4', 'X'),
-	('sid005', 'spw005', 'È«05', '¼îÇÎ¸ô5', 5555555, NOW(), '5', 'X');
+	VALUES ('sid001', 'spw001', 'È«01', '¼îÇÎ¸ô1', 1111111, NOW(), 'http://naver.com'),
+	('sid002', 'spw002', 'È«02', '¼îÇÎ¸ô2', 2222222, NOW(), 'http://daum.net'),
+	('sid003', 'spw003', 'È«03', '¼îÇÎ¸ô3', 3333333, NOW(), '3'),
+	('sid004', 'spw004', 'È«04', '¼îÇÎ¸ô4', 4444444, NOW(), '4'),
+	('sid005', 'spw005', 'È«05', '¼îÇÎ¸ô5', 5555555, NOW(), '5');
 	
 // shoppingMemberStyle
 

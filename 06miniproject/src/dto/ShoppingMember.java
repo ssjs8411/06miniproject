@@ -11,7 +11,14 @@ public class ShoppingMember {
 	private int shopping_member_phone;
 	private String shopping_addr;
 	private String shopping_approval;
+	private int shopping_approval_no;
 	
+	public int getShopping_approval_no() {
+		return shopping_approval_no;
+	}
+	public void setShopping_approval_no(int shopping_approval_no) {
+		this.shopping_approval_no = shopping_approval_no;
+	}
 	public int getShopping_member_no() {
 		return shopping_member_no;
 	}

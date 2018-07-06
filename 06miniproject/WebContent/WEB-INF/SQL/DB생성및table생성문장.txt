@@ -47,11 +47,12 @@ CREATE TABLE `shopping_member` (
 	`shopping_member_phone` INT(11) NOT NULL,
 	`shopping_member_date` DATE NOT NULL,
 	`shopping_addr` VARCHAR(50) NOT NULL,
-	`shopping_approval` VARCHAR(50) NOT NULL,
 	PRIMARY KEY (`shopping_member_no`)
 )
 COLLATE='euckr_korean_ci'
-ENGINE=InnoDB;
+ENGINE=InnoDB
+AUTO_INCREMENT=6;
+
 
 
 // shoppingMemberStyle table
@@ -81,6 +82,18 @@ CREATE TABLE `wishlist` (
 COLLATE='euckr_korean_ci'
 ENGINE=InnoDB;
 
+
+
+// shoppingapproval  table
+
+CREATE TABLE `shopping_approval` (
+	`shopping_approval_no` INT(10) NOT NULL AUTO_INCREMENT,
+	`shopping_member_no` INT(10) NOT NULL,
+	`shopping_approval` VARCHAR(50) NOT NULL DEFAULT '등록요청',
+	PRIMARY KEY (`shopping_approval_no`)
+)
+COLLATE='euckr_korean_ci'
+ENGINE=InnoDB;
 
 
 

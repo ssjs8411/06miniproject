@@ -17,6 +17,7 @@
 		if(loginId.equals(t.getGeneral_member_id())){
 			session.setAttribute("sessionId", t.getGeneral_member_id());
 			session.setAttribute("sessionName", t.getGeneral_member_name());
+			session.setAttribute("generalMemberNo", t.getGeneral_member_no());
 %>
 			<script type="text/javascript">
 				alert('로그인성공');
@@ -27,6 +28,7 @@
 			session.setAttribute("sessionId", t.getShopping_member_id());
 			session.setAttribute("sessionName", t.getShopping_member_name());
 			session.setAttribute("sessionShoppingName", t.getShopping_name());
+			session.setAttribute("shoppingMemberNo", t.getShopping_member_no());
 %>
 			<script type="text/javascript">
 				alert('로그인성공');

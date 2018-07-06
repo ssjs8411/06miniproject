@@ -24,23 +24,25 @@ public class LoginDao {
 		DB db = new DB();
 		conn = db.dbconn();
 		
-		pstmt = conn.prepareStatement("SELECT general_member_id, general_member_name FROM general_member WHERE general_member_id=?");
+		pstmt = conn.prepareStatement("SELECT general_member_no, general_member_id, general_member_name FROM general_member WHERE general_member_id=?");
 		pstmt.setString(1, loginId);
 		
 		rs = pstmt.executeQuery();
 		
 		if(rs.next()) {
 			
+			t.setGeneral_member_no(rs.getInt("general_member_no"));
 			t.setGeneral_member_id(rs.getString("general_member_id"));
 			t.setGeneral_member_name(rs.getString("general_member_name"));
 			
 		}else {
-			pstmt2 = conn.prepareStatement("SELECT shopping_member_id, shopping_member_name, shopping_name FROM shopping_member WHERE shopping_member_id=?");
+			pstmt2 = conn.prepareStatement("SELECT shopping_member_no, shopping_member_id, shopping_member_name, shopping_name FROM shopping_member WHERE shopping_member_id=?");
 			pstmt2.setString(1, loginId);
 			
 			rs2 = pstmt2.executeQuery();
 			
 			if(rs2.next()) {
+				t.setShopping_member_no(rs2.getInt("shopping_member_no"));
 				t.setShopping_member_id(rs2.getString("shopping_member_id"));
 				t.setShopping_member_name(rs2.getString("shopping_member_name"));
 				t.setShopping_name(rs2.getString("shopping_name"));
