@@ -1,27 +1,47 @@
 <!-- 2018-07-05 김소희 -->
 <%@ page language="java" contentType="text/html; charset=EUC-KR"  pageEncoding="EUC-KR"%>
 <%@ page import = "dao.shoppingMemberDao" %>
+<%@ page import = "dto.ShoppingMemberStyle" %>
+<%@ page import = "java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<% request.setCharacterEncoding("euc-kr"); %>
 <jsp:useBean id="sm" class="dto.ShoppingMember"/>
 <jsp:setProperty name="sm" property="*"/>
-<% request.setCharacterEncoding("euc-kr"); %>
 </head>
 <body>
 <%
 
-	String shopping_member_id = request.getParameter("shopping_member_id");
-	String shopping_member_pw = request.getParameter("shopping_member_pw");
-	String shopping_member_name = request.getParameter("shopping_member_name");
-	String shopping_name = request.getParameter("shopping_name");
-	int shopping_member_phone = Integer.parseInt(request.getParameter("shopping_member_phone"));
-	String shopping_addr = request.getParameter("shopping_addr");
-	
-	
 	shoppingMemberDao sMdao = new shoppingMemberDao();
 	sMdao.sMdaoUpdate(sm);
+	System.out.println("sm");
+	int shopping_no = Integer.parseInt(request.getParameter("shopping_no"));
+	
+	String style[] = null;
+
+	if(request.getParameter("style")!=null){
+		
+		style = request.getParameterValues("style");
+		System.out.println(style[0] +"<-style[0]");
+		System.out.println(style[1] +"<-style[1]");
+		
+		ArrayList<ShoppingMemberStyle> als = sMdao.selctStyleNo(shopping_no);
+		
+		for(int i=0; i<als.size(); i++){
+			
+			ShoppingMemberStyle sss = als.get(i);
+			System.out.println(sss.getShopping_member_style_no());
+			System.out.println(style[i]);
+			sMdao.updateStyle(sss.getShopping_member_style_no(),style[i]);
+		}
+		
+		
+		
+	}
+	
+
 %>
 </body>
 </html>

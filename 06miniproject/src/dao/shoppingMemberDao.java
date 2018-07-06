@@ -4,12 +4,60 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import driverDB.DB;
 import dto.ShoppingMember;
+import dto.ShoppingMemberStyle;
 
 public class shoppingMemberDao {
 	
+	public ArrayList<ShoppingMemberStyle> selctStyleNo(int no) throws ClassNotFoundException, SQLException{
+		System.out.println("selctStyleNo.java");
+		
+		ArrayList<ShoppingMemberStyle> als = new ArrayList<ShoppingMemberStyle>();
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs= null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+
+		pstmt = conn.prepareStatement("SELECT shopping_member_style_no, shopping_member_no, shopping_member_style FROM shopping_member_style WHERE shopping_member_no=?");
+		pstmt.setInt(1, no);
+		
+		rs = pstmt.executeQuery();
+		
+		
+		while(rs.next()) {
+			ShoppingMemberStyle s = new ShoppingMemberStyle();
+			s.setShopping_member_style_no(rs.getInt("shopping_member_style_no"));
+			s.setShopping_member_no(rs.getInt("shopping_member_no"));
+			s.setShopping_member_style(rs.getString("shopping_member_style"));
+			
+			als.add(s);
+		}
+			
+			return als;
+		
+		}
+
+	
+	public void updateStyle (int no, String style) throws ClassNotFoundException, SQLException {
+		System.out.println("updateStyle.java");
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		pstmt = conn.prepareStatement("UPDATE shopping_member_style SET shopping_member_style=? WHERE shopping_member_style_no=?");
+		pstmt.setString(1, style);
+		pstmt.setInt(2, no);
+		
+		pstmt.executeUpdate();
+	}
 	
 	public int maxCheck() throws ClassNotFoundException, SQLException {
 			System.out.println("maxCheck.java");
@@ -54,7 +102,7 @@ public class shoppingMemberDao {
 		conn.close();
 	}
 	
-	public ShoppingMember sSelectforUpdate (String shopping_member_id) throws ClassNotFoundException, SQLException {
+	public ShoppingMember sSelectforUpdate (int no) throws ClassNotFoundException, SQLException {
 		System.out.println("sSelectforUpdate.java");
 		
 		ShoppingMember sm = null;
@@ -67,8 +115,8 @@ public class shoppingMemberDao {
 		conn = db.dbconn();
 		
 		
-		pstmt = conn.prepareStatement("SELECT * FROM shopping_member WHERE shopping_member_id=?");
-		pstmt.setString(1, shopping_member_id);
+		pstmt = conn.prepareStatement("SELECT * FROM shopping_member WHERE shopping_member_no=?");
+		pstmt.setInt(1, no);
 		
 		rs = pstmt.executeQuery();
 		
@@ -91,7 +139,29 @@ public class shoppingMemberDao {
 		
 	}
 	
-	public void sMdaoDelete (String shopping_member_id) throws ClassNotFoundException, SQLException {
+	public int styleDelete (int shopping_member_no) throws ClassNotFoundException, SQLException {
+		System.out.println("styleDelete.java");
+		
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		
+		DB db = new DB();
+		conn = db.dbconn();
+		
+		pstmt = conn.prepareStatement("DELETE FROM shopping_member_style WHERE shopping_member_no=?");
+		pstmt.setInt(1, shopping_member_no);
+		
+		int s = pstmt.executeUpdate();
+		
+		pstmt.close();
+		conn.close();
+		return s;
+		
+		
+	}
+	
+	
+	public void sMdaoDelete (int shopping_member_no) throws ClassNotFoundException, SQLException {
 		System.out.println("sMdaoDelete.java");
 		
 		Connection conn = null;
@@ -100,8 +170,8 @@ public class shoppingMemberDao {
 		DB db = new DB();
 		conn = db.dbconn();
 		
-		pstmt = conn.prepareStatement("DELETE FROM shopping_Member WHERE shopping_member_id=?");
-		pstmt.setString(1, shopping_member_id);
+		pstmt = conn.prepareStatement("DELETE FROM shopping_Member WHERE shopping_member_no=?");
+		pstmt.setInt(1, shopping_member_no);
 		
 		pstmt.executeUpdate();
 		
@@ -146,7 +216,7 @@ public class shoppingMemberDao {
 		DB db = new DB();
 		conn = db.dbconn();
 		
-		pstmt = conn.prepareStatement("INSERT INTO shopping_member (shopping_member_id, shopping_member_pw, shopping_member_name, shopping_name, shopping_member_phone, shopping_member_date, shopping_addr, shopping_approval) VALUES (?, ?, ?, ?, ?, NOW(), ?, 'X')");
+		pstmt = conn.prepareStatement("INSERT INTO shopping_member (shopping_member_id, shopping_member_pw, shopping_member_name, shopping_name, shopping_member_phone, shopping_member_date, shopping_addr) VALUES (?, ?, ?, ?, ?, NOW(), ?)");
 		pstmt.setString(1, sm.getShopping_member_id());
 		pstmt.setString(2, sm.getShopping_member_pw());
 		pstmt.setString(3, sm.getShopping_member_name());

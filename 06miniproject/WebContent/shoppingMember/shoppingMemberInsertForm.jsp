@@ -60,7 +60,6 @@
 		<input type="checkbox" name="style" class="ss" value="오피스룩">오피스룩<br>
 		<a id= "ss1"></a>
 	</td>
-	
 <tr>
 <tr>
 	<td>고객센터 전화번호</td>

@@ -43,7 +43,7 @@
 		
 		
 		//스타일 업데이트 메서드
-				public void updateStyle(int no, String style){
+			public void updateStyle(int no, String style){
 			
 			pstmt = conn.prepareStatement("UPDATE general_member_style SET general_member_style=? WHERE general_member_style_no=?");
 			pstmt.setString(1, style);
